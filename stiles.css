@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik';
+    font-size: 0.7cm;
+}
+
+:root{
+    /* color web */
+    --background: #112240;
+    --header: #168AAD;
+    --op1: #52B69A;
+    --hover: #00D7C3;
+
+    /* color icons */
+    --instagram: #e4405f;
+}
+
+/* Header */
+.header{
+    background-color: var(--header);
+    /* Box-shadow da una sombrita en la parte de abajo */
+    box-shadow: 1px 1px 5px 0px gray;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    position: sticky;
+    z-index: 100;
+}
+
+/* Esto quita los puntitos de las listas */
+ul{
+    list-style: none;
+}
+
+/* Logo */
+.logo{
+    display: inline-block;
+    color: aquamarine;
+    font-size: 60px;
+    margin-left: 16px;
+    margin-top: 13px;
+}
+
+/* dimensions for the logo */
+.hedLogo{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+/* Nav menu */
+.nav{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    /* color of background when is a hamburger icon */
+    background-color: var(--header);
+    overflow: hidden;
+    z-index: 100;
+}
+
+.menu a{
+    display: block;
+    padding: 30px;
+    color: black;
+    margin-top: 33px;
+}
+
+/* background when the mouse is on the secction */
+.menu a:hover{
+    background-color: var(--hover);
+    color: white ;
+}
+
+.nav{
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
+/* Menu Icon */
+.hamb {
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+}
+
+.hamb-line {
+    background: black;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+
+.hamb-line::before, .hamb-line::after{
+    background: black;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before{
+    top: 5px;
+}
+
+.hamb-line::after{
+    top: -5px;
+}
+
+.side-menu {
+    display: none;
+}
+
+/* Toggle menu icon */
+.side-menu:checked ~ nav{
+    max-height: 100%;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+    /* cambia para que se despliegue hacia abajo */
+    transform: rotate(-45deg);
+    top:0;
+
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+/* espacio entre productos */
+.spacing{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* formato para mision-vision */
+.spacingMisionInfoFormat{
+    padding-top: 50px;
+}
+
+.spacingLocalInfoFormat{
+    padding-top: 100px;
+}
+
+.localInfoFormat{
+    text-align: center;
+    padding-left: 30px;
+}
+
+/* imagenes formato */
+.imageFormat{
+    padding-top: 30px;
+    width: 500px;
+    height: 300px;
+}
+
+/* iconos */
+.redes-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.redes-container ul li{
+    display: inline-block;
+    margin: 0 5px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
+
+.redes-container ul li a{
+    display: block;
+    padding: 0 10px;
+    background: #333;
+    color: #fff;
+    line-height: 50px;
+    font-size: 18px;
+    transition: 0.25;
+}
+
+/* fromato de cambio de color para cada icono */
+.redes-container ul li .instagram:hover{
+    background: var(--instagram);
+}
+
+#footer {
+    color: #fff;
+    position:-ms-page;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+}
+
+/* Responsiveness */
+@media(max-width: 1200){
+    #body{
+        font-size: 0.3cm;
+        background-color: var(--background);
+    }
+
+}
+
+@media (max-width: 849px) {
+    /* regresa al menu normal */
+    #sidebar, #main {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media (min-width: 850px) {
+    .nav{
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: var(--header);
+        /* tambien se puede anadir es una imagen */
+    }
+
+    /* esto permite que se haga para la derecha el menu */
+    .menu li{
+        float: left;
+    }
+
+    .menu a:hover{
+        background-color: var(--hover);
+        /* color de las letras cuando el mouse esta encima */
+        color: white;
+        
+    }
+    
+    /* oculto el menu hamburgesa cuando es menor o igual a 850px */
+    .hamb{
+        display: none;
+    }
+
+}
